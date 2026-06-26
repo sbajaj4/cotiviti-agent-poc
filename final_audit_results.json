@@ -1,0 +1,109 @@
+[
+    {
+        "target_claim_id": "CLM-001",
+        "audit_status": "REJECTED",
+        "risk_classification": "HIGH",
+        "quantitative_anomalies_found": [
+            "Unit Threshold Breach: CPT 27447 billed for 2 units. Maximum allowed structural ceiling is 1 unit(s)."
+        ],
+        "clinical_justification": "The clinical documentation explicitly states a unilateral right total knee replacement was performed and notes the left knee was normal, directly contradicting the billing of 2 units for CPT 27447, which is a unilateral procedure code.",
+        "confidence_score": 1.0,
+        "suggested_action": "Deny the second unit, adjust the claim to 1 unit, and issue a provider education notice regarding the billing discrepancy."
+    },
+    {
+        "target_claim_id": "CLM-002",
+        "audit_status": "REJECTED",
+        "risk_classification": "HIGH",
+        "quantitative_anomalies_found": [
+            "Statistical Time-Series Anomaly: Cost of $2400 yields a Z-Score of 413.67 (Extreme Outlier).",
+            "Charge inflation factor of 1,600% to 8,000% over national average for CPT 94640."
+        ],
+        "clinical_justification": "The clinical documentation describes a standard nebulizer treatment for asthma, which does not support the extreme $2,400 charge. The lack of detail regarding medication or duration, combined with a statistically impossible Z-score, indicates either a severe data entry error or fraudulent overcharging.",
+        "confidence_score": 0.98,
+        "suggested_action": "Suspend payment immediately, request full medical records for audit, and initiate a retrospective review of the provider's recent billing for CPT 94640."
+    },
+    {
+        "target_claim_id": "CLM-003",
+        "audit_status": "APPROVED",
+        "risk_classification": "LOW",
+        "quantitative_anomalies_found": [],
+        "clinical_justification": "Automated quantitative and fast-semantic checks passed standard baseline criteria.",
+        "confidence_score": 1.0,
+        "suggested_action": "Process payment immediately."
+    },
+    {
+        "target_claim_id": "CLM-004",
+        "audit_status": "REJECTED",
+        "risk_classification": "MEDIUM",
+        "quantitative_anomalies_found": [
+            "Factual Laterality/Coding Contradiction discovered in chart notes.",
+            "Insufficient documentation granularity regarding phalanx level (proximal vs middle vs distal)."
+        ],
+        "clinical_justification": "The clinical note lacks explicit documentation of the phalanx level, making the selection of ICD-10 code S62.610A (proximal phalanx) an assumption rather than a verified clinical finding. This creates a potential mismatch between the documented anatomical site and the coded site, posing an upcoding risk if the fracture is distal.",
+        "confidence_score": 0.85,
+        "suggested_action": "Query the surgeon for an addendum to the operative report to specify the phalanx involved and cross-reference with imaging reports to confirm anatomical accuracy before reprocessing."
+    },
+    {
+        "target_claim_id": "CLM-005",
+        "audit_status": "REJECTED",
+        "risk_classification": "HIGH",
+        "quantitative_anomalies_found": [
+            "Statistical Time-Series Anomaly: Cost of $600 yields a Z-Score of 69.32 (Extreme Outlier)."
+        ],
+        "clinical_justification": "The clinical documentation describes a routine, stable diabetes management encounter which does not meet the moderate complexity requirements for CPT 99214. The billing amount is statistically extreme (Z-score 69.32) and lacks documentation of comorbidities or acute complications to justify the high-level E/M code or the associated cost.",
+        "confidence_score": 0.98,
+        "suggested_action": "Deny claim, initiate a full audit of the provider's last 20 encounters for E11.9, flag for compliance review, and issue formal provider education regarding E/M coding requirements."
+    },
+    {
+        "target_claim_id": "CLM-006",
+        "audit_status": "REJECTED",
+        "risk_classification": "HIGH",
+        "quantitative_anomalies_found": [
+            "Factual Laterality/Coding Contradiction discovered in chart notes.",
+            "Diagnosis code M17.11 (Right knee) contradicts operative note specifying Left knee replacement."
+        ],
+        "clinical_justification": "The claim is non-compliant due to a direct contradiction between the ICD-10 diagnosis code (M17.11, Right knee) and the operative documentation (Left knee replacement). The billed diagnosis code corresponds to a joint that was already replaced in a previous calendar year, creating a significant risk of billing for services not rendered or incorrect primary diagnosis selection.",
+        "confidence_score": 0.98,
+        "suggested_action": "Deny the claim for coding/documentation mismatch and request a corrected claim submission using ICD-10 M17.12 with the appropriate LT modifier."
+    },
+    {
+        "target_claim_id": "CLM-007",
+        "audit_status": "REJECTED",
+        "risk_classification": "HIGH",
+        "quantitative_anomalies_found": [
+            "Statistical Time-Series Anomaly: Cost of $380 yields a Z-Score of 40.70 (Extreme Outlier)."
+        ],
+        "clinical_justification": "The clinical documentation describes a low-complexity lifestyle counseling session, which fails to support the medical necessity of a $380 charge. The extreme Z-score of 40.70 indicates a significant disconnect between the billed amount and the documented service, suggesting potential upcoding or a systemic billing error.",
+        "confidence_score": 0.98,
+        "suggested_action": "Flag for Clinical Peer Review and initiate an Additional Documentation Request (ADR) to verify the EHR audit trail and facility Master Charge Description."
+    },
+    {
+        "target_claim_id": "CLM-008",
+        "audit_status": "REJECTED",
+        "risk_classification": "HIGH",
+        "quantitative_anomalies_found": [
+            "Unit Threshold Breach: CPT 73562 billed for 5 units. Maximum allowed structural ceiling is 3 unit(s)."
+        ],
+        "clinical_justification": "CPT 73562 is a bundled procedural code representing a 3-view knee series. The clinical documentation describes a standard examination without evidence of bilateral imaging or specialized projections that would justify exceeding the 3-unit ceiling. Billing 5 units constitutes unit inflation and is not supported by the medical necessity documented in the chart.",
+        "confidence_score": 0.98,
+        "suggested_action": "Reject the claim for 5 units, request a corrected claim for 1 unit of CPT 73562, and initiate provider education regarding per-procedure billing guidelines."
+    },
+    {
+        "target_claim_id": "CLM-009",
+        "audit_status": "APPROVED",
+        "risk_classification": "LOW",
+        "quantitative_anomalies_found": [],
+        "clinical_justification": "Automated quantitative and fast-semantic checks passed standard baseline criteria.",
+        "confidence_score": 1.0,
+        "suggested_action": "Process payment immediately."
+    },
+    {
+        "target_claim_id": "CLM-010",
+        "audit_status": "APPROVED",
+        "risk_classification": "LOW",
+        "quantitative_anomalies_found": [],
+        "clinical_justification": "Automated quantitative and fast-semantic checks passed standard baseline criteria.",
+        "confidence_score": 1.0,
+        "suggested_action": "Process payment immediately."
+    }
+]
